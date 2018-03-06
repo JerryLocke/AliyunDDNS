@@ -1,0 +1,8 @@
+{
+  "AccessKeyId": "",
+  "AccessKeySecret": "",
+  "Domain": "example.com",
+  "SubDomain": "www",
+  "TTL": 600,
+  "Duration": 600
+}
