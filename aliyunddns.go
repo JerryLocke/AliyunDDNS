@@ -90,9 +90,7 @@ func CheckRecord() {
 	if ip != lastIp {
 		PrintLog("Looking for old DNS record...")
 		record := FindRecord(config)
-		if record.Value == ip {
-			PrintLog("The record does not need to be updated")
-		} else {
+		if record == nil || record.Value != ip {
 			if record == nil {
 				PrintLog("No old record found, will add new DNS record")
 			}
@@ -110,6 +108,8 @@ func CheckRecord() {
 				NextCheck(nil)
 				return
 			}
+		} else {
+			PrintLog("The record does not need to be updated")
 		}
 		lastIp = ip
 	} else {
